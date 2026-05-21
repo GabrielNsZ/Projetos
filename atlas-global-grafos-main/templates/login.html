@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ATLAS Global</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="cadastro-container">
+        <div class="cadastro-box">
+            <h2>Acesso ao ATLAS</h2>
+            <p>Entre com suas credenciais de operador</p>
+            
+            {% if erro %}
+            <p style="color: #d9534f; text-align: center; font-weight: bold;">{{ erro }}</p>
+            {% endif %}
+
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <label for="email">E-mail Corporativo</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Entrar no Sistema</button>
+            </form>
+            
+            <p style="text-align: center; margin-top: 20px; font-size: 14px;">
+                NÃ£o possui acesso? <a href="/cadastro" style="color: #0056b3; text-decoration: none; font-weight: bold;">Cadastre-se</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
